@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Samala | Klinkaara's 1st Birthday</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #D4AF37;
+            --black: #0c0c0c;
+            --dark-grey: #1a1a1a;
+            --white: #ffffff;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--black);
+            color: var(--white);
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        /* --- HEADER --- */
+        .header {
+            padding: 60px 20px;
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), 
+                        url('https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?auto=format&fit=crop&w=1000&q=80');
+            background-size: cover;
+            background-position: center;
+            border-bottom: 2px solid var(--gold);
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: var(--gold);
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.8rem;
+            margin-bottom: 20px;
+        }
+
+        /* --- TYPING HEADLINE --- */
+        .announcement-container {
+            padding: 40px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .typing-headline {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--gold);
+            line-height: 1.4;
+            display: inline-block;
+            overflow: hidden;
+            white-space: normal;
+            border-right: 3px solid var(--gold);
+            animation: blink-caret 0.75s step-end infinite;
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: var(--gold); }
+        }
+
+        /* --- COUNTDOWN --- */
+        .countdown-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .time-box {
+            background: rgba(26, 26, 26, 0.8);
+            padding: 15px;
+            border-radius: 8px;
+            min-width: 70px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .time-box span {
+            display: block;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--gold);
+        }
+
+        /* --- DETAILS SECTION --- */
+        .details-section, .gallery-section {
+            padding: 40px 20px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px solid #333;
+            padding: 15px 0;
+            text-align: left;
+            align-items: center;
+        }
+
+        .label { color: #888; text-transform: uppercase; font-size: 0.7rem; }
+        .value { font-weight: bold; font-size: 1rem; }
+
+        /* --- MODIFIED DESTINATION PART --- */
+        .destination-row {
+            align-items: flex-start !important; 
+            padding: 20px 0 !important;
+        }
+
+        .destination-value {
+            text-align: right;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            width: 70%;
+        }
+
+        .venue-primary {
+            color: var(--gold);
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .venue-secondary {
+            color: #aaaaaa;
+            font-size: 0.85rem;
+            font-weight: 400;
+            line-height: 1.5;
+        }
+
+        .navigate-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: transparent;
+            color: var(--gold);
+            border: 1px solid var(--gold);
+            border-radius: 4px;
+            padding: 15px;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: bold;
+            margin-top: 30px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .navigate-btn:hover {
+            background: var(--gold);
+            color: var(--black);
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* --- GALLERY --- */
+        .slideshow-container {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            margin: 20px auto;
+            overflow: hidden;
+            border-radius: 15px;
+            border: 1px solid var(--gold);
+            background: #000;
+        }
+
+        .mySlides {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            top: 0;
+            left: 0;
+            display: none;
+            transition: filter 0.8s ease;
+        }
+
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: var(--gold);
+            font-weight: bold;
+            font-size: 24px;
+            background-color: rgba(0,0,0,0.3);
+            z-index: 10;
+        }
+
+        .next { right: 0; border-radius: 3px 0 0 3px; }
+        .prev { left: 0; border-radius: 0 3px 3px 0; }
+
+        .active-slide-right { display: block; z-index: 3; animation: slideInRight 0.8s ease forwards; }
+        .active-slide-left { display: block; z-index: 3; animation: slideInLeft 0.8s ease forwards; }
+        .previous-slide { display: block; z-index: 2; filter: blur(10px) brightness(0.4); }
+
+        @keyframes slideInRight { from { transform: translateX(100%); } to { transform: translateX(0); } }
+        @keyframes slideInLeft { from { transform: translateX(-100%); } to { transform: translateX(0); } }
+
+        footer { padding: 60px 40px; font-size: 0.7rem; color: #555; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div class="status-badge">Now Boarding</div>
+        <h1>KLINKAARA'S 1ST BIRTHDAY</h1>
+        
+        <div class="countdown-container" id="countdown">
+            <div class="time-box"><span id="days">00</span>Days</div>
+            <div class="time-box"><span id="hours">00</span>Hrs</div>
+            <div class="time-box"><span id="mins">00</span>Mins</div>
+        </div>
+    </div>
+
+    <div class="announcement-container">
+        <h2 class="typing-headline" id="typedHeadline"></h2>
+    </div>
+
+    <div class="details-section">
+        <div class="info-row">
+            <span class="label">Passenger</span>
+            <span class="value">Ticket Holder</span>
+        </div>
+        <div class="info-row">
+            <span class="label">Boarding Date</span>
+            <span class="value">May 7th, 2026</span>
+        </div>
+        <div class="info-row">
+            <span class="label">Gate Open</span>
+            <span class="value">11:30 AM IST</span>
+        </div>
+
+        <div class="info-row destination-row">
+            <span class="label">Arrival Gate</span>
+            <div class="value destination-value">
+                <span class="venue-primary">Sahasra Function Hall</span>
+                <span class="venue-secondary">Kotamaisamma Temple, Thummadam,<br>Miryalaguda, Telangana</span>
+            </div>
+        </div>
+
+        <a href="https://maps.app.goo.gl/gRC15mDeGLAnpgjK6" target="_blank" class="navigate-btn">
+            📍 Navigate to Destination
+        </a>
+    </div>
+
+    <div class="gallery-section">
+        <h2 style="color: var(--gold); font-family: 'Playfair Display', serif;">"PRE-FLIGHT" GALLERY</h2>
+        <div class="slideshow-container">
+            <img class="mySlides" src="1.jpg">
+            <img class="mySlides" src="2.jpg">
+            <img class="mySlides" src="3.jpg">
+            <img class="mySlides" src="4.jpg">
+            <img class="mySlides" src="5.jpg">
+            <img class="mySlides" src="6.jpg">
+            <img class="mySlides" src="7.jpg">
+            <img class="mySlides" src="8.jpg">
+            
+            <a class="prev" onclick="changeSlide(-1)">❮</a>
+            <a class="next" onclick="changeSlide(1)">❯</a>
+        </div>
+    </div>
+
+    <footer>
+        © 2026 Samala’s Airlines | Booking Ref: KLIN-1
+    </footer>
+
+    <script>
+        // --- TYPING ANIMATION ---
+        const text = "Clear for Takeoff! Join us on Samala’s Flight to celebrate Klin Kaara’s 1st Birthday.";
+        let index = 0;
+        function typeEffect() {
+            if (index < text.length) {
+                document.getElementById("typedHeadline").innerHTML += text.charAt(index);
+                index++;
+                setTimeout(typeEffect, 50);
+            } else {
+                document.getElementById("typedHeadline").style.borderRight = "none";
+            }
+        }
+        window.onload = typeEffect;
+
+        // --- COUNTDOWN TIMER ---
+        const targetDate = new Date("May 7, 2026 11:30:00").getTime();
+        setInterval(function() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+            document.getElementById("days").innerHTML = Math.floor(distance / (1000 * 60 * 60 * 24));
+            document.getElementById("hours").innerHTML = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            document.getElementById("mins").innerHTML = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        }, 1000);
+
+        // --- SLIDER LOGIC ---
+        let slideIndex = 0;
+        let autoPlayTimer;
+        const slides = document.getElementsByClassName("mySlides");
+        if(slides.length > 0) slides[0].style.display = "block";
+
+        function changeSlide(direction) {
+            clearTimeout(autoPlayTimer);
+            let oldIndex = slideIndex;
+            slideIndex += direction;
+            if (slideIndex >= slides.length) { slideIndex = 0; }
+            if (slideIndex < 0) { slideIndex = slides.length - 1; }
+            updateGallery(oldIndex, direction);
+            autoPlayTimer = setTimeout(() => changeSlide(1), 5000);
+        }
+
+        function updateGallery(prevIdx, direction) {
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].classList.remove("active-slide-right", "active-slide-left", "previous-slide");
+                if (i !== prevIdx && i !== slideIndex) slides[i].style.display = "none";
+            }
+            slides[prevIdx].style.display = "block";
+            slides[prevIdx].classList.add("previous-slide");
+            slides[slideIndex].style.display = "block";
+            if (direction === 1) slides[slideIndex].classList.add("active-slide-right");
+            else slides[slideIndex].classList.add("active-slide-left");
+        }
+        autoPlayTimer = setTimeout(() => changeSlide(1), 4000);
+    </script>
+</body>
+</html>
